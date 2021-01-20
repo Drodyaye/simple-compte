@@ -1,0 +1,63 @@
+* {
+     margin: 0%;
+     padding: 0%;
+}
+body {
+     background-color: #e9d7d7;
+     position: relative;
+}
+.main {
+     width: 45%;
+     height: 80%;
+     background-color: white;
+     overflow: auto;
+     min-width: 190px;
+}
+.main h3 {
+     background-color: #3a3a3a;
+     height: 35px;
+     margin: auto;
+     color: white;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: "Bahnschrift";
+}
+.tablebody {
+     border: 1px solid black;
+     height: 30px;
+     width: 98%;
+     background-color: #ffc0c0;
+     margin: 5px auto 5px auto;
+}
+
+.tablebody td {
+     width: 80px;
+}
+.tablebody h6 {
+     text-align: left;
+     font-family: "Bahnschrift";
+     font-size: 15px;
+}
+
+.form {
+     position: absolute;
+     top: 45px;
+     right: 50px;
+}
+
+input {
+     width: 300px;
+     height: 30px;
+     border: 2px solid #3a3a3a;
+     border-radius: 5px;
+     text-align: center;
+}
+
+button {
+     height: 35px;
+     width: 100px;
+     border: 2px solid #3a3a3a;
+     border-radius: 5px;
+}
