@@ -5,7 +5,7 @@ var page = document.getElementById("page");
 var homeBtn = document.getElementById("home");
 var listBtn = document.getElementById("list");
 var addBtn = document.getElementById("add");
-var trashBtn = document.getElementById("trash");
+//var trashBtn = document.getElementById("trash");
 
 setInterval(sizeSet, 1);
 function sizeSet() {
@@ -13,6 +13,16 @@ function sizeSet() {
      mainDiv.style.height = ("height", useHeight + "px");
 }
 
+homeBtn.setAttribute("class", "activeItem");
+homeBtn.setAttribute("disabled", "");
+
+listBtn.setAttribute("class", "navItem");
+listBtn.removeAttribute("disabled", "");
+
+addBtn.setAttribute("class", "navItem");
+addBtn.removeAttribute("disabled", "");
+
+page.setAttribute("src", "pages/home.php");
 function menuSelect(id) {
      switch (id) {
           case "home":
@@ -25,9 +35,9 @@ function menuSelect(id) {
 
                     addBtn.setAttribute("class", "navItem");
                     addBtn.removeAttribute("disabled", "");
+                    /*addBtn.setAttribute("class", "navItem");
+                    addBtn.removeAttribute("disabled", "");*/
 
-                    trashBtn.setAttribute("class", "navItem");
-                    trashBtn.removeAttribute("disabled", "");
                     page.setAttribute("src", "pages/home.php");
                }
                break;
@@ -43,8 +53,8 @@ function menuSelect(id) {
                     addBtn.setAttribute("class", "navItem");
                     addBtn.removeAttribute("disabled", "");
 
-                    trashBtn.setAttribute("class", "navItem");
-                    trashBtn.removeAttribute("disabled", "");
+                    /*trashBtn.setAttribute("class", "navItem");
+                    trashBtn.removeAttribute("disabled", "");*/
                     page.setAttribute("src", "listes.php");
                }
                break;
@@ -60,12 +70,12 @@ function menuSelect(id) {
                     addBtn.setAttribute("class", "activeItem");
                     addBtn.setAttribute("disabled", "");
 
-                    trashBtn.setAttribute("class", "navItem");
-                    trashBtn.removeAttribute("disabled", "");    
+                    /*trashBtn.setAttribute("class", "navItem");
+                    trashBtn.removeAttribute("disabled", "");  */  
                     page.setAttribute("src", "forms.php");
                }
                break;
-
+/*
           case "trash":
                {
                     homeBtn.setAttribute("class", "navItem");
@@ -77,10 +87,10 @@ function menuSelect(id) {
                     addBtn.setAttribute("class", "navItem");
                     addBtn.removeAttribute("disabled", "");
 
-                    trashBtn.setAttribute("class", "activeItem");
+                   /* trashBtn.setAttribute("class", "activeItem");
                     trashBtn.setAttribute("disabled", "");
                }
-               break;
+               break;*/
      }
 }
 
@@ -105,10 +115,11 @@ addBtn.addEventListener(
      },
      false
 );
+/*
 trashBtn.addEventListener(
      "click",
      function () {
           menuSelect("trash");
      },
      false
-);
+);*/

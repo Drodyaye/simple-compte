@@ -7,3 +7,4 @@ function setSize (){
 var aicha =window.innerHeight;
 body.style.height= aicha+"px";
 }
+

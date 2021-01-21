@@ -27,8 +27,7 @@
         <?php
 
         if (empty($_POST["submit"])) {
-            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV'");
-            echo ("form empty");
+            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV' ORDER BY `nom`");
             while ($data = $ret_dev->fetch_array()) {
                 echo ("<table  class=tablebody>");
                 echo ("<tbody>
@@ -44,7 +43,7 @@
                 echo ("</table>");
             }
         } else {
-            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV'");
+            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV' ORDER BY `nom`");
             while ($data = $ret_dev->fetch_array()) {
                 if (similar_text($data["nom"], $_POST["search"]) >= 3 || similar_text($data["prenom"], $_POST["search"]) >= 3) {
                     echo ("<table  class=tablebody>");
@@ -68,13 +67,12 @@
     <div class="main">
         <h3>Referencement Digital</h3>
         <?php
-        $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
+        $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF' ORDER BY `nom`");
         ?>
 
         <?php
         if (empty($_POST["submit"])) {
-            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
-            echo ("form empty");
+            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF' ORDER BY `nom`");
             while ($data = $ret_ref->fetch_array()) {
                 echo ("<table  class=tablebody>");
                 echo ("<tbody>
@@ -90,7 +88,7 @@
                 echo ("</table>");
             }
         } else {
-            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
+            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF' ORDER BY `nom`");
             while ($data = $ret_ref->fetch_array()) {
                 if (similar_text($data["nom"], $_POST["search"]) >= 3 || similar_text($data["prenom"], $_POST["search"]) >= 3) {
                     echo ("<table  class=tablebody>");

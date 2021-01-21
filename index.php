@@ -15,8 +15,8 @@
         <nav>
             <button type="button" class="navItem activeItem" disabled id="home">
                 <div>
-                    <h1>A</h1>
-                    <h6>Acceuil</h6>
+                    <h1>S</h1>
+                    <h6>Stats</h6>
                 </div>
             </button>
 
@@ -33,13 +33,13 @@
                     <h6>Ajouter</h6>
                 </div>
             </button>
-
+            <!--
             <button type="button" class="navItem" id="trash">
                 <div>
                     <h1>C</h1>
                     <h6>Corbeille</h6>
                 </div>
-            </button>
+            </button>-->
         </nav>
         <section id="info">
             <iframe id="page" src="pages/home.php" frameborder="0">
