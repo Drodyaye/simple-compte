@@ -25,9 +25,10 @@
         ?>
 
         <?php
-        $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV'");
+
         if (empty($_POST["submit"])) {
             $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV'");
+            echo ("form empty");
             while ($data = $ret_dev->fetch_array()) {
                 echo ("<table  class=tablebody>");
                 echo ("<tbody>
@@ -43,8 +44,38 @@
                 echo ("</table>");
             }
         } else {
-            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE  `formation`='DEV' AND LOCATE ('{$_POST['search']}', `name`)>=0");
+            $ret_dev = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='DEV'");
             while ($data = $ret_dev->fetch_array()) {
+                if (similar_text($data["nom"], $_POST["search"]) >= 3 || similar_text($data["prenom"], $_POST["search"]) >= 3) {
+                    echo ("<table  class=tablebody>");
+                    echo ("<tbody>
+        <td>
+         <h6>" . $data["nom"] . "</h6>
+        </td>" . "<td>
+        <h6>" . $data["prenom"] . "</h6>
+       </td>" . "<td>
+       <h6>" . $data["mail"] . "</h6>
+      </td>" . "<td>
+      <h6>" . $data["sexe"] . "</h6>
+     </td>" . "</tbody>");
+                    echo ("</table>");
+                }
+            }
+        }
+        ?>
+
+    </div>
+    <div class="main">
+        <h3>Referencement Digital</h3>
+        <?php
+        $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
+        ?>
+
+        <?php
+        if (empty($_POST["submit"])) {
+            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
+            echo ("form empty");
+            while ($data = $ret_ref->fetch_array()) {
                 echo ("<table  class=tablebody>");
                 echo ("<tbody>
         <td>
@@ -58,20 +89,12 @@
      </td>" . "</tbody>");
                 echo ("</table>");
             }
-        }
-        ?>
-
-    </div>
-    <div class="main">
-        <h3>Referencement Digital</h3>
-        <?php
-        $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
-        ?>
-
-        <?php
-        while ($data = $ret_ref->fetch_array()) {
-            echo ("<table  class=tablebody>");
-            echo ("<tbody>
+        } else {
+            $ret_ref = $dat->query("SELECT * FROM `apprenants` WHERE `formation`='REF'");
+            while ($data = $ret_ref->fetch_array()) {
+                if (similar_text($data["nom"], $_POST["search"]) >= 3 || similar_text($data["prenom"], $_POST["search"]) >= 3) {
+                    echo ("<table  class=tablebody>");
+                    echo ("<tbody>
         <td>
          <h6>" . $data["nom"] . "</h6>
         </td>" . "<td>
@@ -81,7 +104,9 @@
       </td>" . "<td>
       <h6>" . $data["sexe"] . "</h6>
      </td>" . "</tbody>");
-            echo ("</table>");
+                    echo ("</table>");
+                }
+            }
         }
         ?>
     </div>
